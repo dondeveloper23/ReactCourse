@@ -1,25 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-//https://www.omdbapi.com/?t=terminator&apikey=ddc7a1c1
+import axios from "axios";
+import MovieSearchInput from "./components/MovieSearchInput";
+
+console.log(process.env.REACT_APP_OMDBAPI_KEY, process.env.REACT_APP_OMDBAPI_URL);
+
+
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+        <MovieSearchInput />
+    </>
+  )
 }
 
 export default App;
