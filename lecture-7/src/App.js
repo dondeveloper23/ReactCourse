@@ -1,16 +1,19 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Movies from "./components/Movies";
 import axios from "axios";
-import MovieSearchInput from "./components/MovieSearchInput";
+import Navigation from "./Templates/Snippets/Navigation";
+import Footer from './Templates/Snippets/Footer';
 
 console.log(process.env.REACT_APP_OMDBAPI_KEY, process.env.REACT_APP_OMDBAPI_URL);
 
 
-
-function App() {
+const App = () => {
   return (
     <>
-        <MovieSearchInput />
+        <Navigation />
+        <Movies />
+        <Footer />
     </>
   )
 }
