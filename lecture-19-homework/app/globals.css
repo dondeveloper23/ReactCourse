@@ -1,0 +1,167 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+/* Kontejner za sve proizvode - 3 kolone na desktopu */
+.products-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Kartica za jedan proizvod */
+.single-product {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 20px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.single-product:hover {
+  transform: translateY(-5px);
+  border-color: #0cf7c4; /* Tvoja omiljena tirkizna boja */
+}
+
+/* Naslov proizvoda */
+.product-title {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  /* Limitiraj na jedan red ako je naslov predugačak */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Slika proizvoda */
+.product-image {
+  border-radius: 12px;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  background-color: #2a2a2a;
+  transition: opacity 0.3s ease;
+}
+
+/* Ako proizvod ima više slika, da se ne preklapaju haotično */
+.single-product > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Responzivnost za mobilni */
+@media (max-width: 600px) {
+  .products-wrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+/* Osnovni stil za body da ti se ne lepi sadržaj uz ivice */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Da footer uvek bude na dnu ako ima malo sadržaja */
+  background-color: #0a0a0a; /* Tamna tema */
+  color: #ffffff;
+  font-family: var(--font-geist-sans);
+}
+
+/* Navigacija - Moderni Glassmorphism */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: #888;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #0cf7c4; /* Tvoja tirkizna */
+}
+
+/* Footer - Jednostavno i pismeno */
+footer {
+  margin-top: auto; /* Gura footer na dno */
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid #333;
+  background: #111;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Da ti children (stranice) imaju malo prostora */
+main {
+  flex: 1;
+  padding: 20px;
+}
